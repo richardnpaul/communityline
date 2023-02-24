@@ -1,0 +1,17 @@
+Hi {{ volunteer.name }}!
+
+This is an automated email from the Community Support Line system.
+
+Your shifts tomorrow are:
+
+{% for shift in shift_list %}
+    {{ start_time }} - {{ end_time }}
+{% endfor %}
+
+Many thanks for your help!
+
+If you have any problems, please let us know by replying to this email.
+
+
+Best regards,
+The Community Support Line robotic dogsbody.

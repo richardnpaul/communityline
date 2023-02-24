@@ -1,0 +1,8 @@
+django
+gunicorn
+django-heroku
+django-twilio
+django-solo
+django-phonenumber-field
+pytz
+django-sendgrid-v5

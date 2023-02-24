@@ -1,0 +1,3 @@
+A transcription of the recording follows:
+
+"{{ transcription_text }}"

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Community Line: new message from {{ caller_number }}</title>
+    </head>
+    <body>
+        <p>Hello,</p>
+        <p>A new voicemail recording has been received from {{ caller_number }}.</p>
+        <p><a href="{{ recording_url }}">Click here to listen to the recording</a>.</p>
+        {{ html_transcription }}
+        <p>Please note that the transcription is machine generated and may not be relied upon for accuracy; it is provided to aid in determining the urgency of the message only.</p>
+        <p>This email is automatically generated and replies are not monitored.</p>
+        <hr/>
+        <p>Many thanks for your attention,</p>
+
+        <p>The Community Line System for {{ user_group_name }}.</p>
+    </body>
+</html>

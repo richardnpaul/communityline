@@ -1,0 +1,12 @@
+
+<h1>Volunteers for {{ user_group }} in the {{ day }} {{ hour }} block:</h1>
+{% if shifts %}
+    <dl>
+    {% for shift in shifts %}
+        <dt>{{ shift.volunteer.number.as_e164 }}</dt>
+        <dd>{{ shift }}</dd>
+    {% endfor %}
+    </dl>
+{% else %}
+    <p>No volunteers at this time.</p>
+{% endif %}
