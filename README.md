@@ -15,6 +15,9 @@ calls to volunteer workers.
 
 ## Limitations
 
+May not be usable in its exact current form, but is open-sourced in case it is
+of interest (or amusement!) for someone. Specific limitations:
+
 - Not much documentation.
 - Not very comprehensive testing.
 - Some of the code is not very well-written for readability / maintainability.
