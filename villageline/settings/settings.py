@@ -23,7 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = DEBUG = os.environ.get('DJANGO_DEBUG', '') == 'True'
+# Default to False, override in local.py
+DEBUG = False
 
 # Forgery protection off at present as we only tell Twilio what to dial in a response.
 DJANGO_TWILIO_FORGERY_PROTECTION = False
@@ -133,7 +134,6 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
-SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
 DEFAULT_FROM_EMAIL = "Default Mail <default@domain.local>"
 
 # For testing password reset.
@@ -146,6 +146,3 @@ SERVER_EMAIL = "default@domain.local"
 ADMINS = [
     ('Admin name', 'admin@domain.local')
 ]
-
-import django_heroku
-django_heroku.settings(locals())
