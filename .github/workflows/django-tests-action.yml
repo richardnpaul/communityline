@@ -21,4 +21,8 @@ jobs:
           key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
       - uses: actions/setup-python@v2
       - run: python3 -m pip install -r requirements.txt
-      - run: python3 manage.py test
+      - name: Running django tests
+        run: python3 manage.py test
+        env:
+          DJANGO_SECRET_KEY: "x#r8^*sj#x)3ixg4f2geyqaj!iyi)#cufw8jw#d(3y%udq2re0"
+          SENDGRID_API_KEY: "foobar"
