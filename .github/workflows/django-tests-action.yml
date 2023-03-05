@@ -21,6 +21,10 @@ jobs:
           key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
       - uses: actions/setup-python@v2
       - run: python3 -m pip install -r requirements.txt
+      - name: Running django migrate
+        run: python3 manage.py migrate
+        env:
+          DJANGO_SECRET_KEY: "x#r8^*sj#x)3ixg4f2geyqaj!iyi)#cufw8jw#d(3y%udq2re0"
       - name: Running django tests
         run: python3 manage.py test
         env:
