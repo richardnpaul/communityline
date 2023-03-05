@@ -1,9 +1,15 @@
-from django.core.management.base import BaseCommand, CommandError
-from django.template.loader import render_to_string
-from callrouting.models import EmailState, Shift, hour_labels
+# Standard Library Imports
 import datetime
 import logging
 import sys
+
+# Django Imports
+from django.core.management.base import BaseCommand, CommandError
+from django.template.loader import render_to_string
+
+# App Imports
+from callrouting.models import EmailState, Shift, hour_labels
+
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
@@ -24,7 +30,7 @@ class Command(BaseCommand):
             logger.error('Email process already in progress')
 
         # Check whether emails have already been sent today
-        sent_date = email_state.last_sent 
+        sent_date = email_state.last_sent
         today = datetime.date.today()
         yesterday = today - datetime.timedelta(days=1)
         # - If it's already today's date then we're done for the day
@@ -55,7 +61,7 @@ class Command(BaseCommand):
         for shift in tomorrow_shifts:
             send_emails = shift.volunteer.send_emails
             logger.info('- %s / send email: %s' % (shift, send_emails))
-        
+
         # Create a list of emails - aggregate all shifts for each volunteer who
         # wants to receive mail
         volunteer_shifts = {}
@@ -67,10 +73,10 @@ class Command(BaseCommand):
                     existing_shifts = []
                     volunteer_shifts[volunteer] = existing_shifts
                 existing_shifts.append(shift)
-        
+
         for volunteer, shift_list in volunteer_shifts.items():
             print("Volunteer %s has %s" % (volunteer, ','.join(['%s' % s for s in shift_list])))
-                
+
         # Send email to each volunteer who has it enabled - format the template and send
         # - Log the emails that actually get sent: one at a time
         # TRYING TO MAKE THE RENDERING BETTER  -SOME BAD SYNTAX HERE?

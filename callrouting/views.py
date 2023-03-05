@@ -1,23 +1,31 @@
-from django.shortcuts import render
+# Standard Library Imports
+from datetime import datetime
+import logging
+import sys
+
+# Django Imports
 from django.contrib.auth.decorators import login_required
-
-# Create your views here.
-
-from twilio.twiml.voice_response import VoiceResponse
-from django_twilio.decorators import twilio_view
-from django_twilio.request import decompose
-from django.http import HttpResponse
-from django.db import transaction
 from django.core.mail import send_mail
+from django.db import transaction
+from django.http import HttpResponse
+from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
 
-from callrouting.models import Shift, hour_labels, UserGroup, Call
-
-from datetime import datetime
-import logging
+# 3rd Party Imports
+from django_twilio.decorators import twilio_view
+from django_twilio.request import decompose
 import pytz
-import sys
+from twilio.twiml.voice_response import VoiceResponse
+
+# App Imports
+from callrouting.models import Call, Shift, UserGroup, hour_labels
+
+
+# Create your views here.
+
+
+
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)

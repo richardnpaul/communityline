@@ -1,10 +1,14 @@
+# Django Imports
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
+# Local Imports
+from .models import Shift, UserGroup, Volunteer
+
+
 # Create your tests here.
 
-from .models import Shift, Volunteer, UserGroup
 
 class ShiftTests(TestCase):
     pass

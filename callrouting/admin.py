@@ -1,6 +1,12 @@
+# Django Imports
 from django.contrib import admin
+
+# 3rd Party Imports
 from solo.admin import SingletonModelAdmin
-from callrouting.models import Shift, Volunteer, EmailState, UserGroup, Call
+
+# App Imports
+from callrouting.models import Call, EmailState, Shift, UserGroup, Volunteer
+
 
 # Register your models here.
 

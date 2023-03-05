@@ -1,9 +1,15 @@
-from django.db import models
-from django.core.exceptions import ValidationError
-from solo.models import SingletonModel
-from phonenumber_field.modelfields import PhoneNumberField
-from django.utils.translation import gettext_lazy as _
+# Standard Library Imports
 import datetime
+
+# Django Imports
+from django.core.exceptions import ValidationError
+from django.db import models
+from django.utils.translation import gettext_lazy as _
+
+# 3rd Party Imports
+from phonenumber_field.modelfields import PhoneNumberField
+from solo.models import SingletonModel
+
 
 # Create your models here.
 

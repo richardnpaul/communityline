@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+# Standard Library Imports
 import os
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -147,5 +149,8 @@ ADMINS = [
     ('Admin name', 'admin@domain.local')
 ]
 
+# 3rd Party Imports
 import django_heroku
+
+
 django_heroku.settings(locals())
