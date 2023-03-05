@@ -1,0 +1,6 @@
+django
+django-phonenumber-field
+django-sendgrid-v5
+django-solo
+django-twilio
+pytz
