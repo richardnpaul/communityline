@@ -96,8 +96,13 @@ class VolunteersViewOneShiftTests(TestCase):
             self.assertEqual(response.status_code, 200)
             self.assertContains(response, '+441234999888')
             self.assertContains(response, 'Steve Smith')
-            self.assertQuerysetEqual(response.context['shifts'],
-                [ '<Shift: Test Group 1 (voicemail default): Steve Smith, Monday 8AM-11AM>' ])
+            shifts = response.context['shifts']
+            volunteer = Volunteer.objects.get(name="Steve Smith")
+            expected_shifts = [Shift.objects.get(
+                volunteer = volunteer.id,
+                user_group = ug_id,
+                day = day)]
+            self.assertQuerysetEqual(shifts, expected_shifts)
 
 class UnfinishedTests(TestCase):
     def test_two_shifts_nonoverlapping(self):
