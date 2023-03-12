@@ -27,6 +27,19 @@ jobs:
           key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
       - uses: actions/setup-python@v2
       - run: python3 -m pip install -r requirements.txt
+      # This is for when the settings file changes are merged in, we can bootstrap the local.py file
+      # into the correct directory and then the tests below should still work.   Also, we can pull in
+      # Github Actions secrets for the Twilio and Sendgrid stuff (sandbox/dev account creds) and still
+      # manage to test this functionality
+      #- name: create local.py
+      #  run: |
+      #    cat <<EoI >villageline/settings/local.py
+      #    from .settings import *
+      #    SECRET_KEY = ${{ env.DJANGO_SECRET_KEY }}
+      #    ALLOWED_HOSTS = []
+      #    TWILIO_ACCOUNT_SID = ""
+      #    TWILIO_AUTH_TOKEN = ""
+      #    SENDGRID_API_KEY = ""
       - name: Running django migrate
         run: python3 manage.py migrate
       - name: Running django tests
