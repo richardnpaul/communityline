@@ -5,4 +5,3 @@ from .settings import *
 # TWILIO_ACCOUNT_SID = ""
 # TWILIO_AUTH_TOKEN = ""
 # SENDGRID_API_KEY = ""
-# PYTHONBREAKPOINT = "IPython.embed"
