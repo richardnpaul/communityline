@@ -148,9 +148,3 @@ SERVER_EMAIL = "default@domain.local"
 ADMINS = [
     ('Admin name', 'admin@domain.local')
 ]
-
-# 3rd Party Imports
-import django_heroku
-
-
-django_heroku.settings(locals())
