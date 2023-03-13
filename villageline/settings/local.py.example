@@ -1,0 +1,7 @@
+from .settings import *
+
+# SECRET_KEY =
+# ALLOWED_HOSTS = []
+# TWILIO_ACCOUNT_SID = ""
+# TWILIO_AUTH_TOKEN = ""
+# SENDGRID_API_KEY = ""
