@@ -35,7 +35,7 @@ jobs:
         run: |
           cat <<EoI > villageline/settings/local.py
           from .settings import *
-          SECRET_KEY = ${{ env.DJANGO_SECRET_KEY }}
+          SECRET_KEY = "${{ env.DJANGO_SECRET_KEY }}"
           ALLOWED_HOSTS = []
           TWILIO_ACCOUNT_SID = ""
           TWILIO_AUTH_TOKEN = ""
