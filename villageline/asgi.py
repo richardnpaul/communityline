@@ -13,6 +13,7 @@ import os
 # Django Imports
 from django.core.asgi import get_asgi_application
 
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'villageline.settings.local')
 
 application = get_asgi_application()
