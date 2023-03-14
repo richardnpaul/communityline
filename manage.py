@@ -6,7 +6,7 @@ import sys
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'villageline.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'villageline.settings.local')
     try:
         # Django Imports
         from django.core.management import execute_from_command_line
