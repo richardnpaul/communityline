@@ -16,7 +16,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('.github/workflows/requirements.txt', 'requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('.github/workflows/requirements.txt', 'requirements/base.txt', 'requirements/production.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
       - name: set PY
@@ -26,7 +26,7 @@ jobs:
           path: ~/.cache/pre-commit
           key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
       - uses: actions/setup-python@v2
-      - run: python3 -m pip install -r requirements.txt
+      - run: python3 -m pip install -r requirements/production.txt
       # This is for when the settings file changes are merged in, we can bootstrap the local.py file
       # into the correct directory and then the tests below should still work.   Also, we can pull in
       # Github Actions secrets for the Twilio and Sendgrid stuff (sandbox/dev account creds) and still
