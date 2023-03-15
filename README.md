@@ -82,6 +82,17 @@ readability yet.
 - Run with `python manage.py test <test spec>`
 - e.g. `python manage.py test callrouting.tests.VolunteersViewTests.test_no_shifts`
 
+### Pre-commit
+
+Install the `pre-commit` hook by following the [instructions](https://pre-commit.com/) on the pre-commit home page.  For the  TL;DR version it goes something like this (on Ubuntu Linux):
+- `sudo apt install --yes python3-pip`
+- `pip3 install pre-commit --user`
+- (In the communityline directory) `pre-commit install`
+
+Now when you try to commit `pre-commit` will run, it may fail and make some changes to files, or it will direct you to which files have failed which tests.  If you don't install, but have `pre-commit` failings this will show up against your commits because there is a Github Action also running `pre-commit` on push.
+
+If you want to run `pre-commit` before trying to commit you can with `pre-commit run --all-files` and this will run the same checks as are run on a git commit and can give early feedback on failings.
+
 ## Resources:
 
 - Getting started on Heroku with Python: https://devcenter.heroku.com/articles/getting-started-with-python
