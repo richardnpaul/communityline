@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.local
+    depends_on:
+      - db
+    image: communityline/django
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/app/
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=communityline
+      - POSTGRES_USER=communityline
+      - POSTGRES_PASSWORD=DiYIhaE0inX26ePtPBDMV86FgPS2wLsdtutMk9qSProOzMYoNd
+
+volumes:
+  postgres_data:
