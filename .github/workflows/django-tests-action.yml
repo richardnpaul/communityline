@@ -34,6 +34,14 @@ jobs:
           path: ~/.cache/pre-commit
           key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
       - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          check-latest: true
+          cache: 'pip'
+          cache-dependency-path: |
+            **/setup.cfg
+            **/requirements.txt
+            **/requirements/*.txt
       - name: pip install requirements
         run: pip3 install -r requirements/production.txt
       - name: create local.py
