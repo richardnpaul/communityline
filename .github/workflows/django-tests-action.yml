@@ -11,26 +11,31 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
+
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/cache@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('.github/workflows/requirements.txt', 'requirements/base.txt', 'requirements/production.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+          python-version: ${{ matrix.python-version }}
+          check-latest: true
+          cache: 'pip'
+          cache-dependency-path: |
+            **/setup.cfg
+            **/requirements.txt
+            **/requirements/*.txt
       - name: set PY
         run: echo "PY=$(python3 -VV | sha256sum | cut -d' ' -f1)" >> $GITHUB_ENV
       - uses: actions/cache@v3
         with:
           path: ~/.cache/pre-commit
           key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
-      - uses: actions/setup-python@v2
-      - run: python3 -m pip install -r requirements/production.txt
-      # This is for when the settings file changes are merged in, we can bootstrap the local.py file
-      # into the correct directory and then the tests below should still work.   Also, we can pull in
-      # Github Actions secrets for the Twilio and Sendgrid stuff (sandbox/dev account creds) and still
-      # manage to test this functionality
+      - uses: actions/setup-python@v4
+      - name: pip install requirements
+        run: pip3 install -r requirements/production.txt
       - name: create local.py
         run: |
           cat <<EoI > villageline/settings/local.py
