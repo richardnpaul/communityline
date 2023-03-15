@@ -1,5 +1,5 @@
 """
-ASGI config for villageline project.
+ASGI config for communityline project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'villageline.settings.local')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'communityline.settings.local')
 
 application = get_asgi_application()

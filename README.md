@@ -56,13 +56,13 @@ readability yet.
 ### General preparation / running
 
 - Open up anaconda powershell prompt
-- Activate villageline environment
+- Activate communityline environment
 - Source env_vars.ps1: `. .\env_vars.ps1`
 - Run `heroku local web -f Procfile.windows`
 
 ### Interactively with Postman
 
-- Collection of queries exported into villageline-other
+- Collection of queries exported into communityline-other
 - Call handle URL to use: http://localhost:5000/callrouting/handle
   - Need to create a POST request with the `To` field populated with the called number
 - There are postman saved queries for the recording and transcription hooks too.
@@ -74,7 +74,7 @@ readability yet.
 - Check volunteer at time: http://localhost:5000/callrouting/volunteers/<group id>/<day>/<time>
   - E.g. https://communityline.herokuapp.com/callrouting/volunteers/1/Monday/17
 - Fire up ngrok:
-  - `ngrok http 5000` in `C:\Grahamroot\villageline-other`.
+  - `ngrok http 5000` in `C:\Grahamroot\communityline-other`.
   - Copy / paste HTTPS URL into Twilio Webhook URL with `/callrouting/handle` appended
 
 ### Automated testing
