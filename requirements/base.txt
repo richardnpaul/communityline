@@ -3,4 +3,5 @@ django-phonenumber-field
 django-sendgrid-v5
 django-solo
 django-twilio
+psycopg2-binary
 pytz

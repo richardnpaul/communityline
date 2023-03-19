@@ -11,7 +11,7 @@ COPY ./requirements/ ./requirements/
 RUN pip install -r requirements/development.txt
 
 
-FROM python:3.11-slim
+FROM python:3.11
 COPY --from=base /venv /venv
 
 # set environment variables
@@ -20,4 +20,4 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 WORKDIR /app
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["./entrypoint.sh", "dev"]

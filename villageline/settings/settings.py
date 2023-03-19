@@ -11,10 +11,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from pathlib import Path
+from pathlib import PurePath
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+# Build paths inside the project like this: PurePath.joinpath(BASE_DIR, ...)
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -75,7 +76,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [PurePath.joinpath(BASE_DIR, 'templates')],
     },
 ]
 
@@ -88,7 +89,7 @@ WSGI_APPLICATION = 'villageline.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': PurePath.joinpath(BASE_DIR, 'db.sqlite3'),
     }
 }
 

@@ -1,7 +1,18 @@
 from .settings import *
 
-# SECRET_KEY =
 # ALLOWED_HOSTS = []
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "HOST": "db",
+#         "NAME": "communityline",
+#         "USER": "communityline",
+#         "PASSWORD": "DiYIhaE0inX26ePtPBDMV86FgPS2wLsdtutMk9qSProOzMYoNd",
+#     }
+# }
+# DEBUG = False
+# SECRET_KEY = ""
+# SENDGRID_API_KEY = ""
+# STATIC_ROOT = PurePath.joinpath(BASE_DIR, "static")
 # TWILIO_ACCOUNT_SID = ""
 # TWILIO_AUTH_TOKEN = ""
-# SENDGRID_API_KEY = ""

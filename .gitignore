@@ -5,3 +5,4 @@ env_vars.ps1
 .vscode
 *.code-workspace
 */settings/local.py
+static/
